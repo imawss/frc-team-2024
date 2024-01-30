@@ -14,8 +14,8 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 public class LauncherSubsystem extends SubsystemBase {
 
   private XboxController launcherController = new XboxController(Constants.LaunchersConstants.LAUNCHER_CONTROLLER_PORT);
-  public PWMSparkMax leftCIMMotor; // CIM motor left
-  public PWMSparkMax rightCIMMotor; // CIM motor right
+  public PWMSparkMax leftCIMMotor; // CIM motor left.
+  public PWMSparkMax rightCIMMotor; // CIM motor right.
 
   public LauncherSubsystem() {
     leftCIMMotor = new PWMSparkMax(Constants.LaunchersConstants.LEFT_CIM_MOTOR);
@@ -41,7 +41,7 @@ public class LauncherSubsystem extends SubsystemBase {
   public boolean exampleCondition() {
     // Query some boolean state, such as a digital sensor.
     return false;
-    
+
   }
 
   @Override
