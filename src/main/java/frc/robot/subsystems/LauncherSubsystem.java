@@ -5,21 +5,21 @@
 package frc.robot.subsystems;
 
 import frc.robot.Constants;
+import frc.robot.Constants.LaunchersConstants;
+import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.motorcontrol.PWMSparkMax;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class LauncherSubsystem extends SubsystemBase {
 
-  public PWMSparkMax leftCIMMotor; // CIM motor
-  public PWMSparkMax rightCIMMotor; // CIM motor
+  private XboxController launcherController = new XboxController(Constants.LaunchersConstants.LAUNCHER_CONTROLLER_PORT);
+  public PWMSparkMax leftCIMMotor; // CIM motor left
+  public PWMSparkMax rightCIMMotor; // CIM motor right
 
-  /** Creates a new ExampleSubsystem. */
   public LauncherSubsystem() {
-    leftCIMMotor = new PWMSparkMax(Constants.LEFT_CIM_MOTOR);
-    leftCIMMotor.set(1);
-    rightCIMMotor = new PWMSparkMax(Constants.RIGHT_CIM_MOTOR);
-    rightCIMMotor.set(1);
+    leftCIMMotor = new PWMSparkMax(Constants.LaunchersConstants.LEFT_CIM_MOTOR);
+    rightCIMMotor = new PWMSparkMax(Constants.LaunchersConstants.RIGHT_CIM_MOTOR);
   }
 
   /**
@@ -28,12 +28,23 @@ public class LauncherSubsystem extends SubsystemBase {
    * @return a command
    */
   public Command launchCommand() {
+    
+    throttle(leftCIMMotor, launcherController.getRightTriggerAxis());
+    throttle(rightCIMMotor, launcherController.getRightTriggerAxis());
 
     return runOnce(
         () -> {
           
         });
   }
+
+  public void throttle(PWMSparkMax motor, double inputValue){
+    double gasValue = 0;
+    gasValue = 1 * inputValue;
+    motor.set(gasValue);
+  }
+
+  
 
   /**
    * An example method querying a boolean state of the subsystem (for example, a digital sensor).

@@ -4,6 +4,7 @@
 
 package frc.robot;
 
+import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.motorcontrol.PWMSparkMax;
 
 /**
@@ -19,8 +20,13 @@ public final class Constants {
     public static final int kDriverControllerPort = 0;
   }
 
-  public static final int LEFT_CIM_MOTOR = 0;
-  public static final int RIGHT_CIM_MOTOR = 1;
+  public static final class LaunchersConstants {
+      public static final int LAUNCHER_CONTROLLER_PORT = 1; // Port number for the launchers controller
+      public static final int LEFT_CIM_MOTOR = 0; 
+      public static final int RIGHT_CIM_MOTOR = 1; 
+  }
+
+  public static final int CHASSIS_CONTROLLER_PORT = 2; // Port number for the chassis controller
   public static final int LEFT_MOTOR_GROUP = 1;
   public static final int RIGHT_MOTOR_GROUP = 1;
 
