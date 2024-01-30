@@ -29,7 +29,6 @@ public class LauncherSubsystem extends SubsystemBase {
 
     return runOnce(
         () -> {
-          
         });
   }
 
